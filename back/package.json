@@ -1,13 +1,13 @@
 {
   "name": "back",
   "version": "1.0.0",
-  "description": "",
+  "description": "Application MERN de gestion des items",
   "main": "index.js",
   "scripts": {
-  "start": "node index.js",
-  "abdelbasset": "nodemon index.js"
-},
-
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "abdelbasset": "node --watch index.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

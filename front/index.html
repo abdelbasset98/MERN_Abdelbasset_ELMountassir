@@ -1,13 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-    <link rel="stylesheet" href="index.css">
-<head>
+<!doctype html>
+<html lang="fr">
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-  <script src="index.js"></script>
-</body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>Mes items</title>
+    <link rel="stylesheet" href="/index.css">
+    <script src="/index.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <div>
+          <p class="eyebrow">APPLICATION MERN</p>
+          <h1>Mes items</h1>
+          <p class="subtitle">Ajoutez et retrouvez vos éléments.</p>
+        </div>
+        <span id="connection-status" class="status" role="status">Connexion…</span>
+      </header>
+
+      <section class="card" aria-labelledby="form-title">
+        <h2 id="form-title">Ajouter un item</h2>
+        <form id="item-form">
+          <label for="name">Nom</label>
+          <input id="name" name="name" maxlength="100" required placeholder="Ex. Mon premier item">
+          <label for="description">Description <span>(facultatif)</span></label>
+          <textarea id="description" name="description" maxlength="500" rows="3" placeholder="Quelques détails…"></textarea>
+          <button type="submit">Ajouter</button>
+          <p id="form-message" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="items-section" aria-labelledby="items-title">
+        <div class="section-heading">
+          <h2 id="items-title">Vos items</h2>
+          <button id="refresh-button" class="text-button" type="button">Actualiser</button>
+        </div>
+        <p id="items-message" class="empty-state">Chargement des items…</p>
+        <ul id="items-list" class="items-list"></ul>
+      </section>
+    </main>
+  </body>
 </html>

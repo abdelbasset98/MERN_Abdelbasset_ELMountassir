@@ -1,0 +1,9 @@
+{
+  "name": "merm-elmountassir-abdelbasset",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix back start",
+    "abdelbasset": "npm --prefix back run abdelbasset"
+  }
+}

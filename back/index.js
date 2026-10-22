@@ -25,6 +25,7 @@ function loadEnvFile() {
 }
 
 loadEnvFile();
+const connectDB = require('./db');
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -60,22 +61,6 @@ const itemSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 const Item = mongoose.models.Item || mongoose.model('Item', itemSchema);
-let connectionPromise;
-
-function connectDB() {
-  if (!process.env.MONGODB_URI) {
-    return Promise.reject(new Error('MONGODB_URI est absent du fichier back/.env'));
-  }
-  if (!connectionPromise) {
-    connectionPromise = mongoose.connect(process.env.MONGODB_URI, {
-      serverSelectionTimeoutMS: 8000,
-    }).catch((error) => {
-      connectionPromise = undefined;
-      throw error;
-    });
-  }
-  return connectionPromise;
-}
 
 async function requireDatabase(_req, res, next) {
   try {

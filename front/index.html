@@ -3,41 +3,38 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f5f7fb">
-    <title>Mes items</title>
+    <meta name="theme-color" content="#f5f6fa">
+    <title>Mes éléments</title>
     <link rel="stylesheet" href="/index.css">
+    <script src="/config.js" defer></script>
     <script src="/index.js" defer></script>
   </head>
   <body>
-    <main class="page">
-      <header class="header">
-        <div>
-          <p class="eyebrow">APPLICATION MERN</p>
-          <h1>Mes items</h1>
-          <p class="subtitle">Ajoutez et retrouvez vos éléments.</p>
-        </div>
-        <span id="connection-status" class="status" role="status">Connexion…</span>
-      </header>
-
+    <header>
+      <h1>Mon application MERN</h1>
+      <span id="connection-status" class="status" role="status">Connexion…</span>
+    </header>
+    <main>
       <section class="card" aria-labelledby="form-title">
-        <h2 id="form-title">Ajouter un item</h2>
+        <h2 id="form-title">Ajouter un élément</h2>
         <form id="item-form">
-          <label for="name">Nom</label>
-          <input id="name" name="name" maxlength="100" required placeholder="Ex. Mon premier item">
-          <label for="description">Description <span>(facultatif)</span></label>
-          <textarea id="description" name="description" maxlength="500" rows="3" placeholder="Quelques détails…"></textarea>
-          <button type="submit">Ajouter</button>
-          <p id="form-message" class="message" aria-live="polite"></p>
+          <label class="visually-hidden" for="name">Nom</label>
+          <input id="name" name="name" placeholder="Nom" required maxlength="100">
+          <label class="visually-hidden" for="description">Description facultative</label>
+          <textarea id="description" name="description" placeholder="Description (facultatif)" maxlength="500" rows="2"></textarea>
+          <button id="submit-btn" type="submit">Ajouter</button>
         </form>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
       </section>
 
-      <section class="items-section" aria-labelledby="items-title">
+      <section class="card" aria-labelledby="items-title">
         <div class="section-heading">
-          <h2 id="items-title">Vos items</h2>
-          <button id="refresh-button" class="text-button" type="button">Actualiser</button>
+          <h2 id="items-title">Éléments</h2>
+          <button id="refresh-btn" class="secondary" type="button">Actualiser</button>
         </div>
-        <p id="items-message" class="empty-state">Chargement des items…</p>
-        <ul id="items-list" class="items-list"></ul>
+        <p id="items-message" class="empty-state">Chargement des éléments…</p>
+        <ul id="items"></ul>
+        <p id="source" class="source"></p>
       </section>
     </main>
   </body>
